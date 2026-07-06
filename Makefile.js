@@ -10,14 +10,11 @@ target.all = () => {
   target.clean();
   target.generateTrieJson();
   target.compileBabel();
-  target.rollupUMD();
-  target.rollupUMDMin();
 };
 
 target.generateTrieJson = () => {
   mkdir('es')
   mkdir('lib')
-  mkdir('dist')
   exec('babel-node src/generate.js');
   cp('src/data.json', 'src/trie.json', 'es');
   cp('src/data.json', 'src/trie.json', 'lib');

@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "description": "Provides fast access to unicode character properties",
   "main": "lib/index.js",
-  "unpkg": "dist/unicode-properties.min.js",
   "module": "es/index.js",
   "scripts": {
     "test": "NODE_ENV=test mocha",
@@ -11,9 +10,7 @@
     "clean": "node Makefile.js clean"
   },
   "dependencies": {
-    "base64-arraybuffer": "^0.1.5",
-    "pako": "^1.0.6",
-    "unicode-trie": "^0.3.0"
+    "unicode-trie": "https://github.com/omochi/unicode-trie/archive/refs/tags/v2.0.0-omochi.0.tar.gz"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.0",
@@ -23,13 +20,6 @@
     "@babel/register": "^7.0.0",
     "codepoints": "^1.2.0",
     "mocha": "^5.2.0",
-    "rollup": "^0.68.0",
-    "rollup-plugin-babel": "^4.1.0",
-    "rollup-plugin-commonjs": "^9.2.0",
-    "rollup-plugin-json": "^3.1.0",
-    "rollup-plugin-local-resolve": "^1.0.7",
-    "rollup-plugin-node-resolve": "^4.0.0",
-    "rollup-plugin-terser": "^3.0.0",
     "shelljs": "^0.8.3"
   },
   "repository": {
