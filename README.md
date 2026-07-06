@@ -3,6 +3,14 @@ This project is a fork of https://github.com/foliojs/unicode-properties created 
 
 Listed below are changes that have been made in this fork:
 
+Additional changes in this fork:
+
+* Use Node.js `zlib` instead of `pako` and `base64-arraybuffer`.
+* Use the omochi fork of `unicode-trie`.
+* Build only the CommonJS and ES module packages used by fontkit. UMD builds are no longer produced.
+
+Changes inherited from Hopding's fork:
+
 * Store binary data as compressed base64 JSON so the `fs` module isn't needed to read it back:
   * [13160b](https://github.com/Hopding/unicode-properties/commit/13160bd299525fd4effd867e9020c955ce8e07d3)
   * [d97bf46](https://github.com/Hopding/unicode-properties/commit/d97bf46ebdcef78f838f0803ec3643e608410add)
@@ -45,24 +53,6 @@ npm install --save @pdf-lib/unicode-properties
 yarn add  @pdf-lib/unicode-properties
 ```
 This assumes you're using [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/lang/en/) as your package manager.
-
-### UMD Module
-You can also download `@pdf-lib/unicode-properties` as a UMD module from [unpkg](https://unpkg.com/#/). The UMD builds have been compiled to ES5, so they should work [in any modern browser](https://caniuse.com/#feat=es5). UMD builds are useful if you aren't using a package manager or module bundler. For example, you can use them directly in the `<script>` tag of an HTML page.
-
-The following builds are available:
-
-* https://unpkg.com/@pdf-lib/unicode-properties/dist/unicode-properties.js
-* https://unpkg.com/@pdf-lib/unicode-properties/dist/unicode-properties.min.js
-
-When using a UMD build, you will have access to a global `window.UnicodeProperties` variable. This variable contains the object exported by `@pdf-lib/unicode-properties`. For example:
-
-```javascript
-// NPM module
-import unicode from '@pdf-lib/unicode-properties';
-
-// UMD module
-var unicode = window.UnicodeProperties;
-```
 
 ## API
 

@@ -1,8 +1,7 @@
 const codePoints = require('codepoints');
 const fs = require('fs');
+const zlib = require('zlib');
 const UnicodeTrieBuilder = require('unicode-trie/builder');
-const pako = require('pako');
-const base64 = require('base64-arraybuffer');
 
 const log2 = Math.log2 || (n => Math.log(n) / Math.LN2);
 
@@ -96,10 +95,9 @@ for (codePoint of Array.from(codePoints)) {
   }
 }
 
-// Trie is serialized suboptimally as JSON so it can be loaded via require,
-// allowing unicode-properties to work in the browser
+// Trie is serialized as compressed base64 JSON so it can be imported by Babel.
 const trieFilePath = __dirname + '/trie.json';
-const jsonBase64DeflatedTrie = JSON.stringify(base64.encode(pako.deflate(trie.toBuffer())));
+const jsonBase64DeflatedTrie = JSON.stringify(zlib.deflateSync(trie.toBuffer()).toString('base64'));
 fs.writeFileSync(trieFilePath, jsonBase64DeflatedTrie);
 
 const data = {
@@ -110,6 +108,6 @@ const data = {
 };
 
 const dataFilePath = __dirname + '/data.json';
-const dataJsonBytes = JSON.stringify(data).split('').map(c => c.charCodeAt(0));
-const jsonBase64DeflatedData = JSON.stringify(base64.encode(pako.deflate(dataJsonBytes)));
+const dataJsonBytes = Buffer.from(JSON.stringify(data));
+const jsonBase64DeflatedData = JSON.stringify(zlib.deflateSync(dataJsonBytes).toString('base64'));
 fs.writeFileSync(dataFilePath, jsonBase64DeflatedData);
