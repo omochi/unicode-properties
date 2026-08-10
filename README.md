@@ -49,10 +49,10 @@ unicode.getNumericValue('2'.charCodeAt()) //=> 2
 To install this fork:
 ```bash
 # With npm
-npm install --save https://github.com/omochi/unicode-properties/releases/download/v1.1.0-omochi.1/unicode-properties-v1.1.0-omochi.1.tgz
+npm install --save https://github.com/omochi/unicode-properties/releases/download/v1.1.0-omochi.1/unicode-properties-1.1.0-omochi.1.tgz
 
 # With yarn
-yarn add https://github.com/omochi/unicode-properties/releases/download/v1.1.0-omochi.1/unicode-properties-v1.1.0-omochi.1.tgz
+yarn add https://github.com/omochi/unicode-properties/releases/download/v1.1.0-omochi.1/unicode-properties-1.1.0-omochi.1.tgz
 ```
 This assumes you're using [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/lang/en/) as your package manager.
 
