@@ -1,5 +1,5 @@
 # Purpose of this Fork
-This project is a fork of https://github.com/foliojs/unicode-properties created for use in https://github.com/Hopding/pdf-lib.
+This project is a Node.js-oriented fork of https://github.com/foliojs/unicode-properties used by https://github.com/omochi/fontkit.
 
 Listed below are changes that have been made in this fork:
 
@@ -22,6 +22,8 @@ Changes inherited from Hopding's fork:
 * Released to NPM as `@pdf-lib/unicode-properties`
   * [a2d46c4](https://github.com/Hopding/unicode-properties/commit/a2d46c4f8cb837e24fdc8d298a8bff756e58bef3)
 
+This fork restores the original `unicode-properties` package name. Fork releases are distributed as GitHub release archives rather than under the upstream package name on NPM.
+
 Also see
 * https://github.com/Hopding/fontkit
 * https://github.com/Hopding/brotli.js
@@ -36,21 +38,21 @@ properties for all code points into just 12KB.
 ## Usage
 
 ```js
-import unicode from '@pdf-lib/unicode-properties';
+import unicode from 'unicode-properties';
 
 unicode.getCategory('2'.charCodeAt()) //=> 'Nd'
 unicode.getNumericValue('2'.charCodeAt()) //=> 2
 ```
 
 ## Installation
-### NPM Module
-To install the latest stable version:
+### GitHub Release Archive
+To install this fork:
 ```bash
 # With npm
-npm install --save @pdf-lib/unicode-properties
+npm install --save https://github.com/omochi/unicode-properties/releases/download/v1.1.0-omochi.1/unicode-properties-v1.1.0-omochi.1.tgz
 
 # With yarn
-yarn add  @pdf-lib/unicode-properties
+yarn add https://github.com/omochi/unicode-properties/releases/download/v1.1.0-omochi.1/unicode-properties-v1.1.0-omochi.1.tgz
 ```
 This assumes you're using [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/lang/en/) as your package manager.
 
